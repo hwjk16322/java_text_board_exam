@@ -20,7 +20,7 @@ public class App {
             }
 
             System.out.println("\n명령어 ) 동록, 목록, 수정, 삭제, 회원가입, 로그인, 로그아웃, 종료");
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             String command = Container.getSc().nextLine();
             switch (command) {
 
@@ -31,7 +31,7 @@ public class App {
 
                 case "등록":
                     if (loginUserId == null) {
-                        systemController.plzlogin(command);
+                        systemController.plzLogin(command);
                         break;
                     }
                     appController.write(loginUserId);
@@ -45,7 +45,7 @@ public class App {
 
                 case "수정":
                     if (loginUserId == null) {
-                        systemController.plzlogin(command);
+                        systemController.plzLogin(command);
                         break;
                     }
                     appController.modify(loginUserId);
@@ -54,7 +54,7 @@ public class App {
 
                 case "삭제":
                     if (loginUserId == null) {
-                        systemController.plzlogin(command);
+                        systemController.plzLogin(command);
                         break;
                     }
                     appController.delete(loginUserId);

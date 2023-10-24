@@ -25,7 +25,7 @@ public class SystemController {
         System.out.println("취소하시려면 취소를 입력해주세요");
         while (true) {
             boolean checkID = true;
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             userId = sc.nextLine();
             if (userId.equals("취소")) {
                 break;
@@ -38,7 +38,7 @@ public class SystemController {
                 }
             }
 
-            if (checkID == true) {
+            if (checkID) {
                 break;
             }
 
@@ -48,10 +48,10 @@ public class SystemController {
         }
         System.out.println("사용하실 비밀번호를 입력해주세요");
         while (true) {
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             userPw = sc.nextLine();
             System.out.println("비밀번호 확인");
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             String passwordCheck = sc.nextLine();
             if (userPw.equals(passwordCheck)) {
                 System.out.println("회원가입이 완료되었습니다.");
@@ -72,11 +72,11 @@ public class SystemController {
         }
         boolean loginError = true;
         System.out.println("로그인하실 아이디를 입력해주세요");
-        System.out.printf("입력 ) ");
+        System.out.print("입력 ) ");
         String enteredId = sc.nextLine();
 
         System.out.println("로그인하실 비밀번호를 입력해주세요");
-        System.out.printf("입력 ) ");
+        System.out.print("입력 ) ");
         String enteredPW = sc.nextLine();
 
         for (int i = 0; i < userList.size(); i++) {
@@ -85,7 +85,7 @@ public class SystemController {
                 loginError = false;
             }
         }
-        if (loginError == true) {
+        if (loginError) {
             System.out.println("회원정보가 없습니다. 다시 시도해주세요.");
         }
     }
@@ -99,8 +99,7 @@ public class SystemController {
         System.out.println("로그아웃이 완료되었습니다.");
     }
 
-    public void plzlogin(String command){
+    public void plzLogin(String command){
         System.out.println("로그인해야 "+command+"할 수 있습니다.");
     }
-
 }

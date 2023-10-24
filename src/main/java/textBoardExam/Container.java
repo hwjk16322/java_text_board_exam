@@ -1,8 +1,11 @@
 package textBoardExam;
 
+import lombok.Getter;
+
 import java.util.Scanner;
 
 public class Container {
+    @Getter
     private static Scanner sc;
 
     public static void init() {
@@ -11,10 +14,6 @@ public class Container {
 
     public static void close() {
         sc.close();
-    }
-
-    public static Scanner getSc() {
-        return sc;
     }
 
 

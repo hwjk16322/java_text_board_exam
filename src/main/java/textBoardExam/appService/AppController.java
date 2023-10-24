@@ -15,10 +15,10 @@ public class AppController {
     public void write(String loginUserId) {
         postId++;
         System.out.println("제목을 입력해주세요");
-        System.out.printf("입력 ) ");
+        System.out.print("입력 ) ");
         String title = sc.nextLine();
         System.out.println("내용을 입력해주세요");
-        System.out.printf("입력 ) ");
+        System.out.print("입력 ) ");
         String content = sc.nextLine();
         Post newPost = new Post(postId, title, content, loginUserId);
         postList.add(newPost);
@@ -61,16 +61,16 @@ public class AppController {
 
         try {
             System.out.println("수정하실 게시물의 번호를 입력해주세요");
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             int postNumber = Integer.parseInt(sc.nextLine());
             Post post = postList.get(postNumber - 1);
 
             if (post.getLoginUserId().equals(loginUserId)) {
                 System.out.println("수정하실 제목을 입력해주세요");
-                System.out.printf("입력 ) ");
+                System.out.print("입력 ) ");
                 String modifiedTitle = sc.nextLine();
                 System.out.println("수정하실 내용을 입력해주세요");
-                System.out.printf("입력 ) ");
+                System.out.print("입력 ) ");
                 String modifiedContent = sc.nextLine();
 
                 postList.get(postNumber - 1).setTitle(modifiedTitle);
@@ -110,7 +110,7 @@ public class AppController {
 
         try {
             System.out.println("삭제하실 게시물의 번호를 입력해주세요");
-            System.out.printf("입력 ) ");
+            System.out.print("입력 ) ");
             int postNumber = Integer.parseInt(sc.nextLine());
             Post post = postList.get(postNumber - 1);
             if (post.getLoginUserId().equals(loginUserId)) {
