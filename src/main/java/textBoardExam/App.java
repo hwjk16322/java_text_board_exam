@@ -8,13 +8,18 @@ public class App {
         AppController appController = new AppController();
         SystemController systemController = new SystemController();
         System.out.println("==게시판 앱==");
+        boolean isLogin = true;
         while (true) {
             String loginUserId = systemController.loginUserId;
-            if (loginUserId != null){
-                System.out.println("\n"+loginUserId + "님 안녕하세요!");
+            if (loginUserId == null) {
+                isLogin = true;
+            }
+            if (loginUserId != null && isLogin) {
+                System.out.println("\n" + loginUserId + "님 안녕하세요!");
+                isLogin = false;
             }
 
-            System.out.println("명령어 ) 동록, 목록, 수정, 삭제, 회원가입, 로그인, 로그아웃, 종료");
+            System.out.println("\n명령어 ) 동록, 목록, 수정, 삭제, 회원가입, 로그인, 로그아웃, 종료");
             System.out.printf("입력 ) ");
             String command = Container.getSc().nextLine();
             switch (command) {
@@ -25,7 +30,7 @@ public class App {
 
 
                 case "등록":
-                    if(loginUserId == null){
+                    if (loginUserId == null) {
                         systemController.plzlogin(command);
                         break;
                     }
@@ -39,7 +44,7 @@ public class App {
 
 
                 case "수정":
-                    if(loginUserId == null){
+                    if (loginUserId == null) {
                         systemController.plzlogin(command);
                         break;
                     }
@@ -48,7 +53,7 @@ public class App {
 
 
                 case "삭제":
-                    if(loginUserId == null){
+                    if (loginUserId == null) {
                         systemController.plzlogin(command);
                         break;
                     }

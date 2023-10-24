@@ -14,6 +14,11 @@ public class SystemController {
     public String loginUserId;
 
     public void sign() {
+        if (loginUserId != null) {
+            System.out.println("이미 로그인되어있습니다.");
+            return;
+        }
+
         String userId;
         String userPw;
         System.out.println("사용하실 아이디를 적어주세요");

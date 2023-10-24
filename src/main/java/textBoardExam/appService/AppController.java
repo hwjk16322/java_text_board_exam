@@ -37,6 +37,19 @@ public class AppController {
     }
 
     public void modify(String loginUserId) {
+        int writtenPost = 0;
+        for (int i = 0; i < postList.size(); i++) {
+            Post post = postList.get(i);
+            if (post.getLoginUserId().equals(loginUserId)) {
+                writtenPost++;
+            }
+        }
+
+        if (writtenPost == 0) {
+            System.out.println("작성하신 게시글이 없습니다.");
+            return;
+        }
+
         System.out.println(loginUserId + " 님이 작성하신 글 목록입니다.");
         System.out.println("게시물 번호 / 제목 / 내용");
         for (int i = 0; i < postList.size(); i++) {
@@ -45,12 +58,13 @@ public class AppController {
                 System.out.printf("%d / %s / %s \n", post.getPostId(), post.getTitle(), post.getContent());
             }
         }
-        System.out.println("수정하실 게시물의 번호를 입력해주세요");
-        System.out.printf("입력 ) ");
-        int postNumber = Integer.parseInt(sc.nextLine());
-        Post post = postList.get(postNumber);
 
         try {
+            System.out.println("수정하실 게시물의 번호를 입력해주세요");
+            System.out.printf("입력 ) ");
+            int postNumber = Integer.parseInt(sc.nextLine());
+            Post post = postList.get(postNumber - 1);
+
             if (post.getLoginUserId().equals(loginUserId)) {
                 System.out.println("수정하실 제목을 입력해주세요");
                 System.out.printf("입력 ) ");
@@ -72,6 +86,19 @@ public class AppController {
     }
 
     public void delete(String loginUserId) {
+        int writtenPost = 0;
+        for (int i = 0; i < postList.size(); i++) {
+            Post post = postList.get(i);
+            if (post.getLoginUserId().equals(loginUserId)) {
+                writtenPost++;
+            }
+        }
+
+        if (writtenPost == 0) {
+            System.out.println("작성하신 게시글이 없습니다.");
+            return;
+        }
+
         System.out.println(loginUserId + " 님이 작성하신 글 목록입니다.");
         System.out.println("게시물 번호 / 제목 / 내용");
         for (int i = 0; i < postList.size(); i++) {
@@ -80,12 +107,12 @@ public class AppController {
                 System.out.printf("%d / %s / %s \n", post.getPostId(), post.getTitle(), post.getContent());
             }
         }
-        System.out.println("삭제하실 게시물의 번호를 입력해주세요");
-        System.out.printf("입력 ) ");
-        int postNumber = Integer.parseInt(sc.nextLine());
 
         try {
-            Post post = postList.get(postNumber);
+            System.out.println("삭제하실 게시물의 번호를 입력해주세요");
+            System.out.printf("입력 ) ");
+            int postNumber = Integer.parseInt(sc.nextLine());
+            Post post = postList.get(postNumber - 1);
             if (post.getLoginUserId().equals(loginUserId)) {
                 postList.remove(postNumber - 1);
                 System.out.println("삭제가 완료되었습니다.");
